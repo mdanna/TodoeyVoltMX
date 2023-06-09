@@ -1,31 +1,40 @@
-define({ 
+define({
+  tasks: [],
 
   onViewCreated(){
     this.view.init = () => {
       this.view.flxFloatingButton.onClick = () => this.view.cmpAddTask.toggle(true);
+      this.tasks = voltmx.store.getItem('tasks') || [];
+      this.loadTasks();
     };
-
-    let countTask = 0;
+    
+    this.view.postShow = () => this.loadTasks();
 
     eventManager.subscribe('addTask', (taskName) => {
-      const task = new com.hcl.mario.Task({
-        id: `task${new Date().getTime()}`,
-        width: `${this.view.flsTaskList.frame.width - 60}dp`
-      }, {}, {});
-      task.taskName = taskName;
-      task.isDone = false;
-      this.view.flsTaskList.add(task);
-      this.view.flsTaskList.forceLayout();
-      countTask++;
-      this.view.lblCount.text = `${countTask} ${countTask === 1 ? 'Task' : 'Tasks'}`;
+      this.tasks.push({taskName, isDone: false});
+      voltmx.store.setItem('tasks', this.tasks);
+      this.loadTasks();
     });
 
     eventManager.subscribe('deleteTask', (taskName) => {
-      const task = this.view.flsTaskList.widgets().find((widget) => widget.taskName === taskName);
-      this.view.flsTaskList.remove(task);
-      this.view.flsTaskList.forceLayout();
-      countTask--;
-      this.view.lblCount.text = `${countTask} ${countTask === 1 ? 'Task' : 'Tasks'}`;
+      this.tasks = this.tasks.filter((t) => t.taskName !== taskName);
+      voltmx.store.setItem('tasks', this.tasks);
+      this.loadTasks();
     });
+  },
+  
+  loadTasks(){
+    this.view.flsTaskList.removeAll();
+    this.tasks.forEach((t) => {
+      const task = new com.hcl.mario.Task({
+        id: `task${new Date().getTime()}`,
+        width: `${voltmx.os.deviceInfo().screenWidth - 60}dp`
+      }, {}, {});
+      task.taskName = t.taskName;
+      task.isDone = false;
+      this.view.flsTaskList.add(task);
+    });
+    this.view.lblCount.text = `${this.tasks.length} ${this.tasks.length === 1 ? 'Task' : 'Tasks'}`;
+    this.view.flsTaskList.forceLayout();
   }
 });
