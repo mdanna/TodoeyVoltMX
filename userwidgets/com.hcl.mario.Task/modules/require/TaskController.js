@@ -4,6 +4,7 @@ define(function() {
     constructor(baseConfig, layoutConfig, pspConfig) {
       this.view.flxCheckbox.onClick = () => {
         this.isDone = !this.isDone;
+        eventManager.publish('updateTask', this.view.lblTaskName.text);
       };
       
       let start = 0;

@@ -11,15 +11,24 @@ define({
     this.view.postShow = () => this.loadTasks();
 
     eventManager.subscribe('addTask', (taskName) => {
-      this.tasks.push({taskName, isDone: false});
-      voltmx.store.setItem('tasks', this.tasks);
-      this.loadTasks();
+      if(this.tasks.find((t) => t.taskName === taskName)){
+        alert(`Task ${taskName} already exists.`);
+      } else {
+        this.tasks.push({taskName, isDone: false});
+        voltmx.store.setItem('tasks', this.tasks);
+        this.loadTasks();
+      }
     });
 
     eventManager.subscribe('deleteTask', (taskName) => {
       this.tasks = this.tasks.filter((t) => t.taskName !== taskName);
       voltmx.store.setItem('tasks', this.tasks);
       this.loadTasks();
+    });
+    
+    eventManager.subscribe('updateTask', (taskName) => {
+      this.tasks.forEach((t) => t.taskName === taskName && (t.isDone = !t.isDone));
+      voltmx.store.setItem('tasks', this.tasks);
     });
   },
   
@@ -31,7 +40,7 @@ define({
         width: `${voltmx.os.deviceInfo().screenWidth - 60}dp`
       }, {}, {});
       task.taskName = t.taskName;
-      task.isDone = false;
+      task.isDone = t.isDone;
       this.view.flsTaskList.add(task);
     });
     this.view.lblCount.text = `${this.tasks.length} ${this.tasks.length === 1 ? 'Task' : 'Tasks'}`;
