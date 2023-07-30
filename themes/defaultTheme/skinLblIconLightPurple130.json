@@ -1,6 +1,6 @@
 {
   "android": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
@@ -15,14 +15,8 @@
   "border_style": "plain",
   "border_type": 0,
   "border_width": 0,
-  "constants": {
-    "font_color": {
-      "key": "color",
-      "value": "${themes.lightPurple}"
-    }
-  },
   "desktopweb": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
@@ -33,29 +27,29 @@
   "font_style": "normal",
   "font_weight": "normal",
   "ipad": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "iphone": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "isDefaultSkin": false,
   "kiosk": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "kuid": "s6f2dfd9466d46be9555174c9bcab5d8",
   "spaan": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "spaandroidtablet": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
@@ -63,27 +57,27 @@
     "font_name": "FontAwesome"
   },
   "spaip": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "spaipad": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "spawindowstablet": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "spawinphone8": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "tabrcandroid": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
@@ -94,12 +88,12 @@
     "isForked": false
   },
   "windows8": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   },
   "winphone8": {
-    "font_name": "FontAwesome",
+    "font_name": "icomoon",
     "font_size": 130,
     "isForked": false
   }

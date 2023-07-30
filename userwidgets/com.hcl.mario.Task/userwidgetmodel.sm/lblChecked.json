@@ -22,7 +22,7 @@
         0
     ],
     "_skin_": "sf7381c0503747d48c8587b6372daff4",
-    "_text_": "",
+    "_text_": "t",
     "_top_": {
         "type": "string",
         "value": "0dp"
@@ -53,7 +53,7 @@
             "wrapping": 2
         }
     },
-    "isvisible": true,
+    "isvisible": false,
     "kuid": "e68784a82516428ba6af6f88e8344fd4",
     "masterType": 1,
     "name": "kony.ui.Label",
